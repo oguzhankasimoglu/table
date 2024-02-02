@@ -3,9 +3,7 @@ import { User, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 
 async function getUsers(): Promise<User[]> {
-  const res = await fetch(
-    "https://64a6f5fc096b3f0fcc80e3fa.mockapi.io/api/users"
-  );
+  const res = await fetch("https://api.sampleapis.com/rickandmorty/characters");
   const data = await res.json();
   return data;
 }
