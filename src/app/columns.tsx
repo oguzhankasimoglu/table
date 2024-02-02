@@ -20,6 +20,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 export type User = {
   id: string;
   name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: string;
   email: string;
   image: string;
   lastSeen: string;
@@ -64,16 +69,112 @@ export const columns: ColumnDef<User>[] = [
     },
   },
   {
-    accessorKey: "email",
+    accessorKey: "status",
+    // tanımlamak için aşağıdaki bu kodu yazmak yeterli =>>> header: "Name",
+    // sıralama yapmak için yapılan düzenleme
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Status
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "species",
+    // tanımlamak için aşağıdaki bu kodu yazmak yeterli =>>> header: "Name",
+    // sıralama yapmak için yapılan düzenleme
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Species
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "type",
+    // tanımlamak için aşağıdaki bu kodu yazmak yeterli =>>> header: "Name",
+    // sıralama yapmak için yapılan düzenleme
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Type
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "gender",
+    // tanımlamak için aşağıdaki bu kodu yazmak yeterli =>>> header: "Name",
+    // sıralama yapmak için yapılan düzenleme
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Gender
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "origin",
+    // tanımlamak için aşağıdaki bu kodu yazmak yeterli =>>> header: "Name",
+    // sıralama yapmak için yapılan düzenleme
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Origin
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "image",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Image
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const user = row.original;
+      return (
+        <div>
+          {user.image ? (
+            <img
+              src={user.image}
+              alt="User"
+              style={{ width: "100px", height: "100px" }}
+            />
+          ) : (
+            <span>No image</span>
+          )}
+        </div>
       );
     },
   },
